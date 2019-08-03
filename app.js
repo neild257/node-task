@@ -1,8 +1,21 @@
+const yargs = require('yargs');
+
+console.log(yargs.argv);
+
+
+
+// console.log(process.argv[2]);
+
+// const chalk = require('chalk');
+// console.log(chalk.bgGreen.bold.blue('Success!'));
+
+// const validator = require('validator');
+// console.log(validator.isURL('http://harry'));
 
 // Task_2
-const { getNotes } = require('./notes');
+// const { getNotes } = require('./notes');
 
-console.log(getNotes());
+// console.log(getNotes());
 // Requiring the file
 // const { name } = require('./utils.js');
 // console.log('My name is: ', name);
@@ -11,4 +24,3 @@ console.log(getNotes());
 // const fs = require('fs')
 // fs.appendFileSync('appendFile.txt', 'Harshit Pareek');
 // fs.appendFileSync('appendFile.txt', 'Appended Text');
-
