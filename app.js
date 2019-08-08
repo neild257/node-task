@@ -1,8 +1,61 @@
 const yargs = require('yargs');
+const { addNotes } = require('./notes');
 
-console.log(yargs.argv);
+// creating a notes application
+// we can add, remove, list and read the notest.
+yargs.version('1.0');
 
+// Create a add command for the notes app
+yargs.command({
+    command: 'add',
+    describe: 'To add a note',
+    builder: {
+        title: {
+            describe: 'Title of a note',
+            demandOption: true,
+            type: 'string',
+        },
+        body: {
+            describe: 'Body of a note',
+            demandOption: true,
+            type: 'string',
+        }
+    },
+    handler: (args) => {
+        // console.log(`Title: ${args.title}`);
+        // console.log(`Body: ${args.body}`);
+        addNotes(args.title, args.body);
+    }
+});
 
+// Create a remove command for the notes app
+yargs.command({
+    command: 'remove',
+    describe: 'To remove a note',
+    handler: (args) => {
+        console.log('handler for Remove command');
+    }
+});
+
+// Create a list command for listing of notes
+yargs.command({
+    command: 'list',
+    describe: 'To list all notes',
+    handler: (args) => {
+        console.log('handler for listing all notes');
+    }
+});
+
+// Create a read command for reading a note
+yargs.command({
+    command: 'read',
+    describe: 'To read a note',
+    handler: (args) => {
+        console.log('handler for reading a note');
+    }
+});
+
+yargs.parse();
 
 // console.log(process.argv[2]);
 

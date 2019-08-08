@@ -1,5 +1,11 @@
+const fs = require('fs');
 
-// Inside the util file
-// console.log('Inside the utils file');
-// const name = 'Harshit';
-// module.exports.name = name;
+const dataBuffer = fs.readFileSync('./1-json.json');
+const dataJSON = dataBuffer.toString();
+const data = JSON.parse(dataJSON);
+
+data.name = 'Harshit';
+data.age = '28';
+
+const newDataJSON = JSON.stringify(data);
+fs.writeFileSync('./1-json.json', newDataJSON);
