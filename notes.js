@@ -1,4 +1,5 @@
 const fs = require('fs');
+const _ = require('lodash');
 
 const getNotes = () => {
     return 'Your Notes...';
@@ -6,12 +7,15 @@ const getNotes = () => {
 
 const addNotes = (title, body) => {
     const notes = loadNotes();
-    notes.push({
-        title,
-        body
-    });
-
-    saveNotes(notes);
+    const duplicateArray = _.filter(notes, e => e.title === title);
+    if (duplicateArray.length == 0) {
+        notes.push({
+            title,
+            body
+        });
+    
+        saveNotes(notes);
+    }
 };
 
 const saveNotes = (notes) => {
