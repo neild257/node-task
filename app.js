@@ -1,5 +1,5 @@
 const yargs = require('yargs');
-const { addNotes } = require('./notes');
+const { addNotes, removeNote } = require('./notes');
 
 // creating a notes application
 // we can add, remove, list and read the notest.
@@ -32,8 +32,15 @@ yargs.command({
 yargs.command({
     command: 'remove',
     describe: 'To remove a note',
+    builder: {
+        title: {
+            describe: 'Title of note to be removed',
+            demandOption: true,
+            type: 'string',
+        },
+    },
     handler: (args) => {
-        console.log('handler for Remove command');
+        removeNote(args.title);
     }
 });
 

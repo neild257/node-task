@@ -18,6 +18,14 @@ const addNotes = (title, body) => {
     }
 };
 
+const removeNote = (title) => {
+    const notes = loadNotes();
+    const newNotes = _.filter(notes, e => title !== e.title);
+    if(!_.isEqual(notes, newNotes)) {
+        saveNotes(newNotes);
+    }
+};
+
 const saveNotes = (notes) => {
     const dataJSON = JSON.stringify(notes);
     fs.writeFileSync('./notes.json', dataJSON);
@@ -35,3 +43,4 @@ const loadNotes = () => {
 
 module.exports.getNotes = getNotes;
 module.exports.addNotes = addNotes;
+module.exports.removeNote = removeNote;
