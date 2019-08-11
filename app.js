@@ -1,5 +1,5 @@
 const yargs = require('yargs');
-const { addNotes, removeNote } = require('./notes');
+const { addNotes, removeNote, listNotes, readNote } = require('./notes');
 
 // creating a notes application
 // we can add, remove, list and read the notest.
@@ -21,9 +21,7 @@ yargs.command({
             type: 'string',
         }
     },
-    handler: (args) => {
-        // console.log(`Title: ${args.title}`);
-        // console.log(`Body: ${args.body}`);
+    handler(args) {
         addNotes(args.title, args.body);
     }
 });
@@ -39,7 +37,7 @@ yargs.command({
             type: 'string',
         },
     },
-    handler: (args) => {
+    handler(args) {
         removeNote(args.title);
     }
 });
@@ -48,8 +46,8 @@ yargs.command({
 yargs.command({
     command: 'list',
     describe: 'To list all notes',
-    handler: (args) => {
-        console.log('handler for listing all notes');
+    handler() {
+        listNotes();
     }
 });
 
@@ -57,12 +55,37 @@ yargs.command({
 yargs.command({
     command: 'read',
     describe: 'To read a note',
-    handler: (args) => {
-        console.log('handler for reading a note');
+    builder: {
+        title: {
+            describe: 'Title of note to be removed',
+            demandOption: true,
+            type: 'string',
+        },
+    },
+    handler(args) {
+        readNote(args.title);
     }
 });
 
 yargs.parse();
+
+// const tasks = {
+//     tasks: [
+//         {
+//             name: 'grocery shopping',
+//             status: true,
+//         },
+//         {
+//             name: 'fruit picking',
+//             status: false,
+//         },
+//     ],
+//     getTasksToDo() {
+//         return this.tasks.filter(el => !el.status);
+//     }
+// };
+
+// console.log(tasks.getTasksToDo());
 
 // console.log(process.argv[2]);
 
