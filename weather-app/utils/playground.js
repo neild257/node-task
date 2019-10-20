@@ -29,4 +29,3 @@ const add = (a, b, callback) => {
 const res = add(4, 5, (sum) => {
     console.log(sum);
 });
-
