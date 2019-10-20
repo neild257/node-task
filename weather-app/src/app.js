@@ -9,8 +9,8 @@ if (address) {
             console.log(err);
             return;
         }
-
-        forcast(geoCodeRes.lat, geoCodeRes.lon, (err, forcastRes) => {
+        const { lat, lon } = geoCodeRes;
+        forcast(lat, lon, (err, forcastRes) => {
             if (err) {
                 console.log(err);
                 return;

@@ -2,15 +2,16 @@ const keys = require('../keys');
 const request = require('request');
 
 const forcast = (lat, lon, callback) => {
-    const URL = `https://api.darksky.net/forecast/${keys.mapsDarkSkyAccessToken}/${lat},${lon}`;
+    const url = `https://api.darksky.net/forecast/${keys.mapsDarkSkyAccessToken}/${lat},${lon}`;
 
-    request.get({ url: URL, json: true }, (err, res) => {
+    request.get({ url, json: true }, (err, res) => {
+        const { body } = res;
         if(err) {
             callback("Unable to fetch weather data");
         } else if(res.body.error) {
             callback("Unable to fetch weather data due to bad request");
         } else {
-            callback(undefined, `${res.body.daily.data[0].summary} ${res.body.currently.precipProbability}` );
+            callback(undefined, `${body.daily.data[0].summary} ${body.currently.precipProbability}` );
         }
     });
 };
