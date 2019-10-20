@@ -1,7 +1,25 @@
 const { geoCode } = require('./utils/geoCode');
 const { forcast } = require('./utils/forcast');
 
-forcast(-75.7088, 44.1545, (err, res) => {
-    console.log('Error', err);
-    console.log('Data', res);
-});
+const address = process.argv[2];
+
+if (address) {
+    geoCode(address, (err, geoCodeRes) => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+
+        forcast(geoCodeRes.lat, geoCodeRes.lon, (err, forcastRes) => {
+            if (err) {
+                console.log(err);
+                return;
+            }
+
+            console.log(forcastRes);
+        });
+    });
+}
+else {
+    console.log("Please reenter valid arguments for search string");
+}
