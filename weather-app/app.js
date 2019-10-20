@@ -1,5 +1,5 @@
 const request = require('request');
-const { geoCode } = require('./geoCode');
+const { geoCode } = require('./utils/geoCode');
 
 geoCode("Los Angles", (err, res) => {
     console.log(res);
