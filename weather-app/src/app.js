@@ -1,4 +1,3 @@
-const request = require('request');
 const { geoCode } = require('./utils/geoCode');
 const { forcast } = require('./utils/forcast');
 

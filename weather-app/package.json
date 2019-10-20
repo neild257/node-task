@@ -4,7 +4,8 @@
   "description": "The Learning of Professional Node with Udemy. This is the Weather App in the course",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/app.js"
   },
   "author": {
     "name": "Harshit Pareek",
@@ -13,5 +14,8 @@
   "license": "ISC",
   "dependencies": {
     "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
   }
 }
