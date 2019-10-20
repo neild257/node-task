@@ -1,13 +1,8 @@
 const request = require('request');
 const { geoCode } = require('./utils/geoCode');
-const keys = require('./keys');
+const { forcast } = require('./utils/forcast');
 
-geoCode("Los Angles", (err, res) => {
-    console.log(res);
-    const URL = `https://api.darksky.net/forecast/${keys.mapsDarkSkyAccessToken}/${lat},${lon}`;
-
-    request.get({ url: URL, json: true }, (err, res) => {
-        const data = res.body;
-        console.log("data si", data);
-    });
+forcast(-75.7088, 44.1545, (err, res) => {
+    console.log('Error', err);
+    console.log('Data', res);
 });
