@@ -1,6 +1,7 @@
 import path from 'path';
 
 import express from 'express';
+import hbs from 'hbs';
 
 const app = express();
 
@@ -9,12 +10,16 @@ const PORT = process.env.PORT || 3000;
 // path to public folder to serve the static content
 const publicPath = path.join(__dirname, '../public');
 
-// path to templates folder for the handlebars
-const templatesPath = path.join(__dirname, '../templates');
+// path to templates/views folder for the handlebars
+const viewsPath = path.join(__dirname, '../templates/views');
+
+// path to templates/partials folder for the handlebars
+const partialsPath = path.join(__dirname, '../templates/partials');
 
 // setting up express for handlebars
 app.set('view engine', 'hbs');
-app.set('views', templatesPath);
+app.set('views', viewsPath);
+hbs.registerPartials(partialsPath);
 
 // setting up express for serving static content
 app.use(express.static(publicPath));
