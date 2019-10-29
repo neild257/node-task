@@ -34,14 +34,16 @@ app.get('', (req, res) => {
 app.get('/about', (req, res) => {
     res.render('about', {
         title: 'About Me',
-        name: 'Harshit Pareek'
+        name: 'Harshit Pareek',
+        aboutText: 'This is About Text'
     });
 });
 
-app.get('/help', (req, res) => {
-    res.render('about', {
+app.get('/help/', (req, res) => {
+    res.render('help', {
         title: 'Help',
-        name: 'Harshit Pareek'
+        name: 'Harshit Pareek',
+        helpText: 'This is Help Text'
     });
 });
 
@@ -52,13 +54,27 @@ app.get('/weather', (req, res) => {
     });
 });
 
-app.get('/about', (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/about.html"));
+app.get('/help/*', (req, res) => {
+    res.render('404Page', {
+        error: 'Help article not found',
+        name: 'Harshit'
+    });
 });
 
-app.get('/help', (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/help.html"));
+app.get('*', (req, res) => {
+    res.render('404Page', {
+        error: 'Page Not Found 404 Error',
+        name: 'Harshit'
+    });
 });
+
+// app.get('/about', (req, res) => {
+//     res.sendFile(path.join(__dirname, "../public/about.html"));
+// });
+
+// app.get('/help', (req, res) => {
+//     res.sendFile(path.join(__dirname, "../public/help.html"));
+// });
 
 app.listen(PORT, () => {
     console.log(`App has started on ${PORT}`);
