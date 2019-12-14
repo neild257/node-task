@@ -1,5 +1,5 @@
-const { geoCode } = require('./utils/geoCode');
-const { forcast } = require('./utils/forcast');
+const { geoCode } = require('../web-server/src/utils/geoCode');
+const { forcast } = require('../web-server/src/utils/forcast');
 
 const address = process.argv[2];
 
