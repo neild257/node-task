@@ -3,6 +3,10 @@ import path from 'path';
 import express from 'express';
 import hbs from 'hbs';
 
+// internal imports
+import geoCode  from './utils/geoCode';
+import forcast from './utils/forcast';
+
 const app = express();
 
 const PORT = process.env.PORT || 3000;
@@ -48,10 +52,45 @@ app.get('/help/', (req, res) => {
 });
 
 app.get('/weather', (req, res) => {
-    res.send({
-        forcast: 'All clear with no probabilty of rain.',
-        location: 'Los Angeles'
+    if(!req.query.address) {
+        res.send({
+            error: 'The query string is not valid'
+        })
+    }
+
+    geoCode(req.query.address, (gecodeErr: any, geoCodeRes: any) => {
+        if(gecodeErr) {
+            res.send({
+                error: 'Error while fetching the results'
+            });
+        }
+        
+        forcast(geoCodeRes.lat, geoCodeRes.lon, (forcastErr: any, forcastRes: any) => {
+            if(forcastErr) {
+                res.send({
+                    error: 'Error while fetching the forcast'
+                });
+            }
+            res.send({
+                forcast: `${forcastRes}`,
+                address: req.query.address
+            });
+        });
     });
+});
+
+// doing the query string without body parser in node
+app.get('/product', (req, res) => {
+    if(!req.query.search) {
+        res.send({
+            error: 'The search string is not defined'
+        });
+    }
+    else {
+        res.send({
+            message: `The result has been processed with ${req.query.search}`
+        });
+    }
 });
 
 app.get('/help/*', (req, res) => {
@@ -67,14 +106,6 @@ app.get('*', (req, res) => {
         name: 'Harshit'
     });
 });
-
-// app.get('/about', (req, res) => {
-//     res.sendFile(path.join(__dirname, "../public/about.html"));
-// });
-
-// app.get('/help', (req, res) => {
-//     res.sendFile(path.join(__dirname, "../public/help.html"));
-// });
 
 app.listen(PORT, () => {
     console.log(`App has started on ${PORT}`);
