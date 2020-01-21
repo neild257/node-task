@@ -1,7 +1,7 @@
 // Testing the https core module
 import https from 'https';
 import * as keys from '../../../src/keys';
-const url = `https://api.darksky.net/forecast/${keys.mapsDarkSkyAccessToken}/40,-75`; 
+const url = `https://api.darksky.net/forecast/${keys.geoCodeKeys.mapsDarkSkyAccessToken}/40,-75`; 
 
 https.request(url, (res) => {
     let data = '';

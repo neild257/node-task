@@ -1,6 +1,7 @@
 {
   "name": "weather-app",
   "version": "1.0.0",
+  "homepage": "https://harry101491.github.io/portfolio/",
   "description": "The Learning of Professional Node with Udemy. This is the Weather App in the course",
   "main": "app.js",
   "scripts": {
@@ -13,6 +14,7 @@
   },
   "license": "ISC",
   "dependencies": {
+    "firebase": "^7.7.0",
     "request": "^2.88.0"
   },
   "devDependencies": {

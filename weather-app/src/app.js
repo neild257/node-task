@@ -1,5 +1,6 @@
 const { geoCode } = require('../web-server/src/utils/geoCode');
 const { forcast } = require('../web-server/src/utils/forcast');
+require('./firebase/firebase');
 
 const address = process.argv[2];
 

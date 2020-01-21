@@ -2,7 +2,7 @@ import request from 'request';
 import * as keys from '../../../src/keys';  
 
 const geoCode = (searchString: string, callback: any) => {
-    const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(searchString)}.json?access_token=${keys.geoCodeAccessToken}&limit=1`;
+    const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(searchString)}.json?access_token=${keys.geoCodeKeys.geoCodeAccessToken}&limit=1`;
     
     request.get({ url, json: true }, (err, res) => {
         const { body } = res;
