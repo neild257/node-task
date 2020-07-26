@@ -1,0 +1,43 @@
+body {
+    font-family: Comic Sans MS, sans-serif;
+  box-sizing: border-box;
+  width: 100%;
+  position: relative;
+  }
+
+  #feedback {
+    background-color: lightblue;
+    margin: 12px 0;
+    max-width: 30px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+.unknownCSS {
+  position: absolute;
+  min-width: 30px;
+  bottom: 5px;
+  right: 5px;
+}
+  
+  #sampleTbl {
+    color: gray;
+    border-color: gray;
+    border-collapse: collapse;
+  }
+  
+  li {
+    padding: 1em;
+  }
+
+  p {
+    border: 4px dotted rgb(150,150,150);
+    padding: 1em;
+    margin: 1em;
+  }
+  
+  .code {
+    font-family: monospace;
+    background-color: orange;
+  }

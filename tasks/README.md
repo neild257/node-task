@@ -1,6 +1,11 @@
-## Node Learning Tasks
-The Learning of Professional Node with Udemy. This is the First Assignment in the course
+# Node Tasks Application 
 
-## Author
-* **Harshit Pareek** - Software Engineer (NYU Grad) :sunglasses: :computer:
-<br />Looking for new opportunites - contact via mail - hars.pareek@nyu.edu
+A collection of apps and tasks while learning node javascript framework.
+
+## Authors
+
+* **Harshit Pareek** - *Software Engineer* - :sunglasses: :computer:
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
