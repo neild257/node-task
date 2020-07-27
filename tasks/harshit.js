@@ -23,3 +23,10 @@ feedbackElement.addEventListener('click',
      feedbackElement.style.backgroundColor = 'lightblue';
    }
 });
+
+const formElement = document.querySelector("#submittingForm");
+formElement.addEventListener('submit', (event) => {
+   if(event.target.value.match(/^[a-zA-Z0-9]*$/gm)) {
+     event.preventDefault();
+   }
+});
