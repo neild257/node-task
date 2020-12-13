@@ -15,8 +15,7 @@ Object.keys(obj).map((key) => {
 
 const feedbackElement = document.querySelector("#feedback");
 
-feedbackElement.addEventListener('click', 
-(event) => {
+feedbackElement.addEventListener('click', (event) => {
    if(feedbackElement.style.backgroundColor === 'lightblue') {
      feedbackElement.style.backgroundColor = 'yellow';
    } else {
