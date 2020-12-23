@@ -1,5 +1,5 @@
 const firebase = require('firebase');
-const firebaseConfig = require('../keys').firebaseConfig;
+const firebaseConfig = require('../weather-app/src/keys').firebaseConfig;
 
 
 firebase.initializeApp(firebaseConfig);

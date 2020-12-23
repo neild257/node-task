@@ -1,4 +1,4 @@
-import * as keys from '../../../src/keys';
+import * as keys from '../../../weather-app/src/keys';
 import request from 'request';   
 
 const forcast = (lat: number, lon: number, callback: any) => {
