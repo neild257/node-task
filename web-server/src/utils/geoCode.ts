@@ -1,5 +1,5 @@
 import request from 'request';
-import * as keys from '../../../src/keys';  
+import * as keys from '../../../weather-app/src/keys';  
 
 const geoCode = (searchString: string, callback: any) => {
     const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(searchString)}.json?access_token=${keys.geoCodeKeys.geoCodeAccessToken}&limit=1`;
