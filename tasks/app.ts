@@ -3,7 +3,7 @@ import { Observable, of, from, fromEvent, concat} from 'rxjs';
 const sampleObject = {
     name: "harshit pareek",
     age: 29,
-    workplace: 'Extron Electronics',
+    workplace: 'unknown',
     status: 'single'
 };
 
