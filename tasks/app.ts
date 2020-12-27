@@ -1,22 +1,35 @@
 import { Observable, of, from, fromEvent, concat} from 'rxjs';
 
-const sampleObject = {
-    name: "harshit pareek",
-    age: 29,
-    workplace: 'unknown',
-    status: 'single'
+// passing observer object
+const myObserver = {
+    next: (value) => console.log(value),
+    error: (err) => console.log(err),
+    complete: () => console.log('It has completed')
 };
 
+const source$ = of(1, 2, 3);
 
-const source1$ = from(Object.values(sampleObject));
+source$.subscribe(myObserver);
 
-// source1$.subscribe(value => console.log(value));
 
-const source2$ = from([1, 2, 3, 4]);
+// Understanding the of, from and fromEvent operators
+// const sampleObject = {
+//     name: "harshit pareek",
+//     age: 29,
+//     workplace: 'unknown',
+//     status: 'single'
+// };
 
-// source2$.subscribe(value => console.log(value));
 
-concat(source1$, source2$).subscribe(value => console.log(value));
+// const source1$ = from(Object.values(sampleObject));
+
+// // source1$.subscribe(value => console.log(value));
+
+// const source2$ = from([1, 2, 3, 4]);
+
+// // source2$.subscribe(value => console.log(value));
+
+// concat(source1$, source2$).subscribe(value => console.log(value));
 
 // Creating first Observable from constructor
 // const subscribe = (subscriber: Subscriber<number>) => {
