@@ -2,9 +2,10 @@
 
 A collection of apps and tasks while learning node javascript framework.
 
-## Authors
+## Author
 
-* **Harshit Pareek** - *Software Engineer* - :sunglasses: :computer:
+* **Neil D** - Fullstack Developer - Cognizant
+<br />Looking for new opportunites - contact via mail - neildsouza257@gmail.com
 
 ## License
 
